@@ -1,0 +1,129 @@
+0x00 ldi %r2, 1
+0x04 ldi %r1, 1
+0x08 mul %r2, %r2, %r0
+0x0C sub %r0, %r0, %r1
+0x10 cmp %r3, %r0, %r1
+0x14 jgt %r3, -16
+
+Exercise 4
+
+00000000100000000000000000000001
+00000000010000000000000000000001
+00010000100001000000XXXXXXXXXXXX
+00101000000000000001XXXXXXXXXXXX
+00011000110000000001XXXXXXXXXXXX
+00100000111111111111111111110000
+
+Exercise 5
+
+r0 = 2
+r2,r1 = 1
+r2 = r2*r0 = 2
+r0 = r0-r1 = 1
+
+cmp: rD[1] = 0
+jgt: jump out
+
+0x18 -> r2 = 2
+
+
+r0 = 3
+r2,r1 = 1
+r2 = r2*r0 = 3
+r0 = r0-r1 = 2
+
+cmp: r0 > r1 -> r3[1] = 1
+jgt: jump to 0x04
+
+0x08: r2 = r2*r0 = 3*2 = 6
+0x0C r0 = r0-r1 = 2-1 = 1
+
+cmp: r0 = r1 -> r3[1] = 0
+jgt: jump out
+
+0x18 -> r2 = 6
+
+
+
+0x00 ldi %r2, 1
+0x04 ldi %r1, 1
+0x08 mul %r2, %r2, %r0
+0x0C sub %r0, %r0, %r1
+0x10 cmp %r3, %r0, %r1
+0x14 jgt %r3, -16
+
+r2 = 1
+r0 = 4
+r2 = 4
+r0 = 3
+r3[1] = 1
+r2 = 12
+r0 = 2
+r3[1] = 1
+r2 = 24
+r0 = 1
+r3[1] = 0
+jump out
+r2 = 24
+
+
+0x00 ldi %r2, 1
+0x04 ldi %r1, 1
+0x08 mul %r2, %r2, %r0
+0x0C sub %r0, %r0, %r1
+0x10 cmp %r3, %r0, %r1
+0x14 jgt %r3, -16
+
+r2 = 1
+r0 = 9
+
+gidder ikke skrive dette
+
+men det blir r2 *= r3!
+
+-> r2 = 9! = 362880
+
+Exercise 6
+
+0x00 ldi %r2, 1
+0x04 ldi %r1, 1
+0x08 mul %r2, %r2, %r0
+0x0C sub %r0, %r0, %r1
+0x10 cmp %r3, %r0, %r1
+0x14 jgt %r3, -16
+
+0x00:
+imm = 1
+alu = 3
+regw = 1
+branch = 0
+
+0x04:
+imm = 1
+alu = 3
+regw = 1
+branch = 0
+
+0x08:
+imm = 0
+alu = 4
+regw = 1
+branch = 0
+
+0x0C:
+imm: 0
+alu = 5
+regw = 1
+branch = 0
+
+0x10:
+imm = 0
+alu = 1
+regw = 1
+branch = 0
+
+0x14
+imm = 0
+alu = 2
+regw = 0
+branch = 1
